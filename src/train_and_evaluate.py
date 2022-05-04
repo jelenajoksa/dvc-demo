@@ -65,6 +65,7 @@ def train_and_evaluate(config_path):
     print("  MAE: %s" % mae)
     print("  R2: %s" % r2)
 
+    ######################################################################
     #last is to add scores and params after we added report folder, params and scores json files inside and updated scores in dvc.yaml
 
     scores_file = config['reports']['scores']
@@ -95,6 +96,7 @@ def train_and_evaluate(config_path):
         By default, when you write JSON data into a file, Python doesn’t use indentations and writes all data on a single line, which is not readable. '''
         json.dump(params, f, indent=4)
 
+    ######################################################################
 
 
     os.makedirs(model_dir, exist_ok=True)
