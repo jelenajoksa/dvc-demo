@@ -137,6 +137,38 @@ def train_and_evaluate(config_path):
     print("  MAE: %s" % mae)
     print("  R2: %s" % r2)
 
+    #last is to add scores and params after we added report folder, params and scores json files inside and updated scores in dvc.yaml
+
+    scores_file = config['reports']['scores']
+    params_file = config['reports']['params']
+
+    with open(scores_file, 'w') as f:
+        #we create dictionary to store our scores/metrics
+        scores = {
+            'rmse': rmse,
+            'mae': mae,
+            'r2': r2
+        }
+        #we are now dumping this dictionary into scores file
+        #indent = 4 means that the output will be organized properly, read the big comment below
+        json.dump(scores, f, indent = 4)
+
+    with open(params_file, 'w') as f:
+        #we create dictionary to store our parameters
+        params = {
+            'alpha': alpha,
+            'l1_ratio': l1_ratio
+        }
+
+        '''Using the json.dump() method of Python json module, we can write prettyprinted JSON into the file.
+        The json.dump() method provides the following parameters to pretty-print JSON data.
+        The indent parameter specifies the spaces that are used at the beginning of a line. 
+        We can use the indent parameter of json.dump() to specify the indentation value. 
+        By default, when you write JSON data into a file, Python doesn’t use indentations and writes all data on a single line, which is not readable. '''
+        json.dump(params, f, indent=4)
+
+
+
     os.makedirs(model_dir, exist_ok=True)
     model_path = os.path.join(model_dir, "model.joblib")
 
