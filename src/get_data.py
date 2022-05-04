@@ -30,4 +30,4 @@ if __name__ == "__main__":
     parser.add_argument("--config", default="params.yaml")
 
     args = parser.parse_args()
-    get_data(args.config)
+    data = get_data(args.config)

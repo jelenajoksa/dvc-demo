@@ -1,4 +1,4 @@
-#read data from the datasource and save it to data/rax for the further process
+#read data from the datasource and save it to data/raw for the further process
 
 import os
 import get_data
