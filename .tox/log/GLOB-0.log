@@ -1,6 +1,6 @@
 action: GLOB, msg: packaging
 cwd: /Users/jelena/Desktop/PhD - Continue/MLOps/simple_project
-cmd: /usr/local/Cellar/tox/3.25.0/libexec/bin/python3.10 setup.py sdist --formats=zip --dist-dir '/Users/jelena/Desktop/PhD - Continue/MLOps/simple_project/.tox/dist'
+cmd: /usr/local/Cellar/tox/3.25.0/libexec/bin/python3.10 setup.py sdist --formats=zip --dist-dir .tox/dist
 /usr/local/Cellar/tox/3.25.0/libexec/lib/python3.10/site-packages/setuptools/_distutils/dist.py:260: UserWarning: 'licence' distribution option is deprecated; use 'license'
   warnings.warn(msg)
 /usr/local/Cellar/tox/3.25.0/libexec/lib/python3.10/site-packages/setuptools/_distutils/dist.py:275: UserWarning: Unknown distribution option: 'package'

@@ -1,6 +1,6 @@
-#load train and test files
-#train algotithm
-#save the metrics and params
+# load train and test files
+# train algotithm
+# save the metrics and params
 
 
 # load the train and test
@@ -19,7 +19,8 @@ import argparse
 import joblib
 import json
 
-#function that will calculate metrics of our algorithm
+
+# function that will calculate metrics of our algorithm
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
@@ -66,24 +67,24 @@ def train_and_evaluate(config_path):
     print("  R2: %s" % r2)
 
     ######################################################################
-    #last is to add scores and params after we added report folder, params and scores json files inside and updated scores in dvc.yaml
+    # last is to add scores and params after we added report folder, params and scores json files inside and updated scores in dvc.yaml
 
     scores_file = config['reports']['scores']
     params_file = config['reports']['params']
 
     with open(scores_file, 'w') as f:
-        #we create dictionary to store our scores/metrics
+        # we create dictionary to store our scores/metrics
         scores = {
             'rmse': rmse,
             'mae': mae,
             'r2': r2
         }
-        #we are now dumping this dictionary into scores file
-        #indent = 4 means that the output will be organized properly, read the big comment below
-        json.dump(scores, f, indent = 4)
+        # we are now dumping this dictionary into scores file
+        # indent = 4 means that the output will be organized properly, read the big comment below
+        json.dump(scores, f, indent=4)
 
     with open(params_file, 'w') as f:
-        #we create dictionary to store our parameters
+        # we create dictionary to store our parameters
         params = {
             'alpha': alpha,
             'l1_ratio': l1_ratio
@@ -97,7 +98,6 @@ def train_and_evaluate(config_path):
         json.dump(params, f, indent=4)
 
     ######################################################################
-
 
     os.makedirs(model_dir, exist_ok=True)
     model_path = os.path.join(model_dir, "model.joblib")

@@ -13,3 +13,17 @@ def test_generic():
     with pytest.raises(NotInRange):
         if a not in range(10, 20):
            raise NotInRange
+
+''' 
+#if we want to have more tests that our algorithm have to go through we have to define it as test_something() 
+#if we just write def something like below, nothing will happen, it will ignore it in execution:
+def something():
+    a=2
+    b=2
+    assert True
+'''
+
+def test_something():
+    a=2
+    b=2
+    assert True
